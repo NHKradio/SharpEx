@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace SharpEx
 {
@@ -33,6 +34,22 @@ namespace SharpEx
                     }
                 }
                 return sb.ToString();
+            }
+
+            // return all match values from regex pattern
+            // "hello world".FromRegex("(\w*)") => ["hello", "world"]
+            public static string[] FromRegex(this string source, string pattern)
+            {
+                List<string> arr = new List<string>();
+                var ms = Regex.Matches(source, pattern);
+                foreach (Match m in ms)
+                {
+                    for (int i = 1; i < m.Length; i++)
+                    {
+                        arr.Add(m.Groups[i].Value);
+                    }
+                }
+                return arr.ToArray();
             }
         }
     }

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntEx.cs" />
+    <Compile Include="MessageBoxEx.cs" />
     <Compile Include="StaticRandom.cs" />
     <Compile Include="StringEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
