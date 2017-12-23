@@ -14,8 +14,8 @@ namespace SharpEx
             // (15).@for( () => Console.Write("step") )
             public static void @for(this int source, Action action)
             {
-                int n = source;
-                while (n-- > 0)
+                int len = source;
+                for (int i = 0; i < len; i++)
                 {
                     action();
                 }
@@ -25,10 +25,10 @@ namespace SharpEx
             // (3).@for( (n) => Console.Write(n) )  // => 210
             public static void @for(this int source, Action<int> action)
             {
-                int n = source;
-                while (n-- > 0)
+                int len = source;
+                for (int i = 0; i < len; i++)
                 {
-                    action(n);
+                    action(i);
                 }
             }
         }

@@ -36,6 +36,31 @@ namespace SharpEx
                 return sb.ToString();
             }
 
+            // loop for string with self-arg
+            // "hello".@foreach( (n) => Console.Write(n + ' ') )  // => h e l l o
+            public static void @foreach(this string source, Action<char> action)
+            {
+                int len = source.Length;
+                for (int i = 0; i < len; i++)
+                {
+                    action(source[i]);
+                }
+            }
+
+            public static string Shuffle(this string source)
+            {
+                int len = source.Length;
+                char[] output = source.ToArray();
+                Random rnd = new Random();
+                for (int i = 0; i < len; i++)
+                {
+                    int r = rnd.Next(0, i + 1);
+                    output[i] = output[r];
+                    output[r] = source[i];
+                }
+                return new string(output);
+            }
+
             // return all match values from regex pattern
             // "hello world".FromRegex("(\w*)") => ["hello", "world"]
             public static string[] FromRegex(this string source, string pattern)

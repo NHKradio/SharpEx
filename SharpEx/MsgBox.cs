@@ -7,18 +7,17 @@ using System.Windows.Forms;
 
 namespace SharpEx
 {
-    namespace Extension
-    {
-        public static class MessageBoxEx
+    namespace Support {
+        public static class MsgBox
         {
             // fast show
-            public static DialogResult Show(this MessageBox mbox)
+            public static DialogResult Show()
             {
                 return MessageBox.Show(string.Empty);
             }
 
-            // univrsal show
-            public static DialogResult Show(this MessageBox mbox, params object[] objects)
+            // universal show
+            public static DialogResult Show(params object[] objects)
             {
                 StringBuilder sb = new StringBuilder();
                 foreach (var item in objects)
